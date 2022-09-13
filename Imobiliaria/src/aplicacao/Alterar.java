@@ -1,4 +1,7 @@
 package aplicacao;
+
+// Importar Imovel?
+
 /**********************************
  * IFPB - Curso Superior de Tec. em Sist. para Internet
  * POB - Persistencia de Objetos
@@ -12,7 +15,7 @@ import com.db4o.ObjectContainer;
 import com.db4o.query.Query;
 
 import model.Corretor;
-
+import Imovel
 
 public class Alterar {
 	protected ObjectContainer manager;
@@ -26,17 +29,16 @@ public class Alterar {
 	}
 
 	public void atualizar(){
-		//localizar pelo CRECI e alterar quantidade de vendas do motor para 5
-
+		
 		Query q = manager.query();
-		q.constrain(Corretor.class);  				
+		q.constrain(Imovel.class);  				
 		q.descend("creci").constrain("####");		 
-		List<Corretor> resultados = q.execute(); 
+		List<Imovel> resultados = q.execute(); 
 
 		if(resultados.size()>0) {
-			Corretor c =  resultados.get(0);
-			c.getCreci().setqntdVendas(20);
-			manager.delete(c);
+			Imovel i =  resultados.get(0);
+			i.getProprietario().setProprietario(Joao);
+			manager.delete(i);
 			manager.commit();
 			System.out.println("alterou ");
 		}
