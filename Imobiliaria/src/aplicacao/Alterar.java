@@ -1,21 +1,12 @@
 package aplicacao;
 
-// Importar Imovel?
-
-/**********************************
- * IFPB - Curso Superior de Tec. em Sist. para Internet
- * POB - Persistencia de Objetos
- * Prof. Fausto Ayres
- *
- */
-
 import java.util.List;
 
 import com.db4o.ObjectContainer;
 import com.db4o.query.Query;
 
-import model.Corretor;
-import Imovel
+import model.Pessoa;
+import model.Imovel;
 
 public class Alterar {
 	protected ObjectContainer manager;
@@ -29,15 +20,15 @@ public class Alterar {
 	}
 
 	public void atualizar(){
-		
+
 		Query q = manager.query();
 		q.constrain(Imovel.class);  				
-		q.descend("creci").constrain("####");		 
+		q.descend("proprietario").descend("nome").constrain("maria");		 
 		List<Imovel> resultados = q.execute(); 
 
 		if(resultados.size()>0) {
 			Imovel i =  resultados.get(0);
-			i.getProprietario().setProprietario(Joao);
+			i.setProprietario(new Pessoa("Joao", 19, "8399923992"));
 			manager.delete(i);
 			manager.commit();
 			System.out.println("alterou ");

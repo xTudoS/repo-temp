@@ -19,7 +19,7 @@ public class Listar {
 	}
 
 	public void listar(){
-		System.out.println("-------Lista de Imoveis--------");
+		System.out.println("-------Lista de Pessoas--------");
 		Query q = manager.query();
 		q.constrain(Pessoa.class);  				
 		List<Pessoa> resultados = q.execute();
@@ -27,7 +27,7 @@ public class Listar {
 			System.out.println(pes);
 		}
 		
-		System.out.println("\n-------Lista de Pessoas--------");
+		System.out.println("\n-------Lista de Imoveis--------");
 		Query l = manager.query();
 		l.constrain(Imovel.class);
 		List<Imovel> result = l.execute();

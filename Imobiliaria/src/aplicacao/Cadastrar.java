@@ -35,7 +35,7 @@ public class Cadastrar {
 		imovel1.adicionarCorretor(pessoa2);
 		
 		imovel2 = new Imovel("Avenida Esperanca", 69, "", "Manaira", "Joao Pessoa", "Paraiba", "Comercial", "Aluguel", "A vista", 1000);
-		imovel2.adicionarProp(pessoa1);
+		imovel2.adicionarProp(pessoa2);
 		imovel2.adicionarCorretor(pessoa3);
 		
 		imovel3 = new Imovel("Rua infante dom henrique", 406, "Apt 101", "Tambau", "Joao Pessoa", "Paraiba", "Comercial", "Aluguel", "A vista", 1000);

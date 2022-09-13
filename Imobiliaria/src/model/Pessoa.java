@@ -28,5 +28,9 @@ public class Pessoa {
 	public List<Imovel> getImoveis() {
 		return imoveis;
 	}
+	@Override
+	public String toString() {
+		return "Pessoa [nome=" + nome + ", telefone=" + telefone + ", imoveis=" + imoveis + "]";
+	}
 	
 }
