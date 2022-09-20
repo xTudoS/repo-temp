@@ -16,7 +16,7 @@ public class Alterar {
 		atualizar();
 		manager.close();
 
-		System.out.println("\n\n aviso: feche sempre o plugin OME antes de executar aplicação");
+		System.out.println("\n\n aviso: feche sempre o plugin OME antes de executar aplicac�o");
 	}
 
 	public void atualizar(){

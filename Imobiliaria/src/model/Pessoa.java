@@ -8,7 +8,6 @@ public class Pessoa {
 	private int idade;
 	private int id;
 	private String telefone;
-	private Imovel imov;
 	private List<Imovel> imoveis = new ArrayList<>();
 	
 	public Pessoa(String nome, int idade, String telefone) {
@@ -17,20 +16,25 @@ public class Pessoa {
 		this.telefone = telefone;
 	}
 	public void adicionarImov(Imovel imov) {
-		this.imov = imov;
+		this.imoveis.add(imov);
 	}
-	public Imovel getImovel() {
-		return imov;
+	public void removerImov(Imovel imov) {
+		this.imoveis.remove(imov);
 	}
-	public void setImovel(Imovel imov) {
-		this.imov = imov;
-	}
+	
 	public List<Imovel> getImoveis() {
 		return imoveis;
 	}
+	public String getNome() {
+		return this.nome;
+	}
 	@Override
 	public String toString() {
-		return "Pessoa [nome=" + nome + ", telefone=" + telefone + ", imoveis=" + imoveis + "]";
+		String dados = "Nome: " + nome + ", telefone: " + telefone + ", imoveis: ";
+		for(Imovel i: this.imoveis) {
+			dados += i.getEndereco() +" , " + i.getNumero() + " , ";
+		}
+		return dados;
 	}
 	
 }

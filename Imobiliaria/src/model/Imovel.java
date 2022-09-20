@@ -40,11 +40,18 @@ public class Imovel extends Venda {
 	public List<Pessoa> getProprietarios(){
 		return proprietarios;
 	}
+	public String getEndereco() {
+		return endereco;
+	}
+
+	public int getNumero() {
+		return numero;
+	}
+
 	@Override
 	public String toString() {
-		return "Imovel [endereco=" + endereco + ", numero=" + numero + ", complemento=" + complemento + ", bairro="
-				+ bairro + ", cidade=" + cidade + ", estado=" + estado + ", tipoimov=" + tipoimov + ", proprietario="
-				+ proprietario + ", corretor=" + corretor + ", proprietarios=" + proprietarios + "]";
+		return "Endereco:" + endereco + ", Numero:" + numero +", Cidade:" + cidade + "Tipo de Imovel: " + tipoimov + ", Proprietario:"
+				+ proprietario.getNome();
 	}
 	
 	

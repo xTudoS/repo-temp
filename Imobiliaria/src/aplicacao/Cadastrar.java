@@ -22,19 +22,20 @@ public class Cadastrar {
 		System.out.println("Cadastrando...");
 		
 		Imovel imovel1, imovel2, imovel3;
-		Pessoa pessoa1,pessoa2, pessoa3, pessoa4, pessoa5;
+		Cliente pessoa1,pessoa2;
+		Corretor pessoa3, pessoa4, pessoa5;
 		
-		pessoa1 = new Pessoa("joao", 18, "99999999");
-		pessoa2= new Pessoa("maria", 18, "99999999");
-		pessoa3= new Pessoa("paulo", 18, "99999999");
-		pessoa4= new Pessoa("antonio", 18, "99999999");
-		pessoa5= new Pessoa("pedro", 18, "99999999");
+		pessoa1 = new Cliente("joao", 18, "99999999", "Solteiro", 1800);
+		pessoa2= new Cliente("maria", 18, "99999999", "Casada", 5000);
+		pessoa3= new Corretor("paulo", 18, "99999999", "GG123");
+		pessoa4= new Corretor("antonio", 18, "99999999", "MB456");
+		pessoa5= new Corretor("pedro", 18, "99999999", "KL987");
 
 		imovel1 = new Imovel("rua da areia", 69, "", "centro", "Joao Pessoa", "Paraiba", "Comercial", "Aluguel", "A vista", 1000);
 		imovel1.adicionarProp(pessoa1);
 		imovel1.adicionarCorretor(pessoa2);
 		
-		imovel2 = new Imovel("Avenida Esperanca", 69, "", "Manaira", "Joao Pessoa", "Paraiba", "Comercial", "Aluguel", "A vista", 1000);
+		imovel2 = new Imovel("Avenida Esperanca", 96, "", "Manaira", "Joao Pessoa", "Paraiba", "Comercial", "Aluguel", "A vista", 1000);
 		imovel2.adicionarProp(pessoa2);
 		imovel2.adicionarCorretor(pessoa3);
 		
@@ -45,9 +46,7 @@ public class Cadastrar {
 		pessoa1.adicionarImov(imovel1);
 		pessoa1.adicionarImov(imovel2);
 		pessoa1.adicionarImov(imovel3);
-		
-		pessoa1.adicionarImov(imovel1);
-		
+				
 		pessoa2.adicionarImov(imovel2);
 		
 		pessoa3.adicionarImov(imovel3);

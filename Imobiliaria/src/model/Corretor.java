@@ -15,4 +15,8 @@ public class Corretor extends Pessoa {
 		this.comissao = comissao;
 		this.qntdVendas = qntdVendas;
 	}
+	public Corretor(String nome, int idade, String telefone, String creci) {
+		super(nome, idade, telefone);
+		this.creci = creci;
+	}
 }
