@@ -32,7 +32,13 @@ public class Pessoa {
 	public String toString() {
 		String dados = "Nome: " + nome + ", telefone: " + telefone + ", imoveis: ";
 		for(Imovel i: this.imoveis) {
-			dados += i.getEndereco() +" , " + i.getNumero() + " , ";
+			if (i==null){
+				return dados;
+			}
+			else {
+				
+				dados += i.getEndereco() +" , " + i.getNumero() + " , ";
+			}
 		}
 		return dados;
 	}

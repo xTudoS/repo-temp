@@ -28,7 +28,6 @@ public class Deletar {
 
 	public void apagarImovel(){
 		
-		//loalizar carro placa BBB2200 e deletar
 		
 		Query q = manager.query();
 		q.constrain(Imovel.class);  				
@@ -48,12 +47,11 @@ public class Deletar {
 	
 	public void apagarPessoa(){
 		
-		//loalizar carro placa BBB2200 e deletar
 		
 		Query q = manager.query();
 		q.constrain(Pessoa.class);  				
 		q.descend("nome").constrain("paulo");		 
-		List<Pessoa> resultados = q.execute(); // select p from Pessoa p where p.nome="maria"
+		List<Pessoa> resultados = q.execute(); // select p from Pessoa p where p.nome="paulo"
 	
 		if(resultados.size()>0) {
 			Pessoa p = resultados.get(0);
@@ -66,7 +64,7 @@ public class Deletar {
 			System.out.println("apagou Paulo");
 		}
 		else
-			System.out.println("Paulo inexistente");
+			System.out.println("Pessoa inexistente");
 	}
 
 
