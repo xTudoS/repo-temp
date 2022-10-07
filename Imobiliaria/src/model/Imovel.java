@@ -3,6 +3,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Imovel extends Venda {
+	private int id;
 	private String endereco;
 	private int numero;
 	private String complemento;
@@ -24,6 +25,12 @@ public class Imovel extends Venda {
 		this.estado = estado; 
 		this.numero = numero; 
 		this.tipoimov = tipoimov;
+	}
+	public void setId(int id) {
+		this.id = id;
+	}
+	public int getId() {
+		return id;
 	}
 	public void adicionarProp(Pessoa proprietario) {
 		this.proprietario = proprietario;

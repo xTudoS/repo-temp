@@ -27,9 +27,9 @@ public class Cadastrar {
 		
 		pessoa1 = new Cliente("joao", 18, "99999999", "Solteiro", 1800);
 		pessoa2= new Cliente("maria", 18, "99999999", "Casada", 5000);
-		pessoa3= new Corretor("paulo", 18, "99999999", "GG123");
-		pessoa4= new Corretor("antonio", 18, "99999999", "MB456");
-		pessoa5= new Corretor("pedro", 18, "99999999", "KL987");
+		pessoa3= new Corretor("paulo", 18, "99999999", 123);
+		pessoa4= new Corretor("antonio", 18, "99999999",456);
+		pessoa5= new Corretor("pedro", 18, "99999999", 798);
 
 		imovel1 = new Imovel("rua da areia", 69, "", "centro", "Joao Pessoa", "Paraiba", "Comercial", "Aluguel", "A vista", 1000);
 		imovel1.adicionarProp(pessoa1);
