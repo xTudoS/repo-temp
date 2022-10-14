@@ -10,10 +10,10 @@ import model.Corretor;
 public class DAOCorretor  extends DAO<Corretor>{
 
 	public Corretor read (Object chave) {
-		int id = (Integer) chave;	
+		int creci = (Integer) chave;	
 		Query q = manager.query();
 		q.constrain(Corretor.class);
-		q.descend("id").constrain(id);
+		q.descend("creci").constrain(creci);
 		List<Corretor> resultados = q.execute();
 		if (resultados.size()>0)
 			return resultados.get(0);

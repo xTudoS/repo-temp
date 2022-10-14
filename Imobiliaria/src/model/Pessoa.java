@@ -6,7 +6,7 @@ import java.util.List;
 public class Pessoa {
 	private String nome;
 	private int idade;
-	private int id;
+	private int idPessoa;
 	private String telefone;
 	private List<Imovel> imoveis = new ArrayList<>();
 	
@@ -42,5 +42,12 @@ public class Pessoa {
 		}
 		return dados;
 	}
+	public void setId(int id) {
+		this.idPessoa = id;
+	}
+	public int getId() {
+		return idPessoa;
+	}
+	
 	
 }
