@@ -26,6 +26,13 @@ public class DAOCorretor  extends DAO<Corretor>{
 		obj.setCreci(novoCreci);				//atualizar id do objeto antes de grava-lo no banco
 		manager.store( obj );
 	}
+	
+	public int consultarVendasCorretor() {
+		Query q = manager.query();
+		q.constrain(Corretor.class);
+		q.descend("qntdVendas").constrain(3).smaller().not();
+		return q.execute().size();
+	}
 }
 
 

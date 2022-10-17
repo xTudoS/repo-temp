@@ -19,5 +19,4 @@ public class Cliente extends Pessoa {
 	public int getId() {
 		return idCliente;
 	}
-	
 }

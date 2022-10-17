@@ -9,6 +9,7 @@ public class Pessoa {
 	private int idPessoa;
 	private String telefone;
 	private List<Imovel> imoveis = new ArrayList<>();
+	private ArrayList<Venda> vendas = new ArrayList<>();
 	
 	public Pessoa(String nome, int idade, String telefone) {
 		this.idade = idade;
@@ -28,6 +29,25 @@ public class Pessoa {
 	public String getNome() {
 		return this.nome;
 	}
+	
+	public void adicionar(Venda e){
+		vendas.add(e);
+	}
+	public void remover(Venda e){
+		vendas.remove(e);
+	}
+	public Venda localizar(int id){
+		for(Venda e : vendas){
+			if(e.getId() == id)
+				return e;
+		}
+		return null;
+	}
+	
+	public ArrayList<Venda> getVendas() {
+		return vendas;
+	}
+	
 	@Override
 	public String toString() {
 		String dados = "Nome: " + nome + ", telefone: " + telefone + ", imoveis: ";
