@@ -98,7 +98,7 @@ public class TelaPrincipal {
 		mnEvento.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
-				TelaEventos tela = new TelaVendas();
+				TelaVendas tela = new TelaVendas();
 			}
 		});
 		menuBar.add(mnVenda);
