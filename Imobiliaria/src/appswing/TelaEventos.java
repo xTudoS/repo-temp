@@ -1,7 +1,7 @@
 /**********************************
  * IFPB - Curso Superior de Tec. em Sist. para Internet
  * POO
- * Prof. Fausto Maranhão Ayres
+ * Prof. Fausto Maranhï¿½o Ayres
  **********************************/
 package appswing;
 
@@ -257,13 +257,13 @@ public class TelaEventos {
 		button_2.setBounds(775, 180, 95, 23);
 		frame.getContentPane().add(button_2);
 
-		button_3 = new JButton("Ver convidados");
+		button_3 = new JButton("Visualizar vendas");
 		button_3.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				try {
 					if (table.getSelectedRow() >= 0){
 						String id = (String) table.getValueAt( table.getSelectedRow(), 0);
-						Evento ev = Fachada.localizarEvento(Integer.parseInt(id));
+						Evento ev = Fachada.localizarVenda(Integer.parseInt(id));
 						String nomes= "Nomes dos convidados:";
 						for(Convidado c : ev.getConvidados())
 							nomes+="\n"+c.getNome();
@@ -314,7 +314,7 @@ public class TelaEventos {
 	//*****************************
 	public void listagem () {
 		try{
-			List<Evento> lista = Fachada.listarEventos();
+			List<Cliente> lista = Fachada.listarClientes();
 
 			//model contem todas as linhas e colunas da tabela
 			DefaultTableModel model = new DefaultTableModel();
@@ -329,11 +329,11 @@ public class TelaEventos {
 			model.addColumn("convidados");
 			//linhas
 			for(Evento ev : lista) {
-				model.addRow(new Object[]{ev.getId()+"", ev.getData(), ev.getDescricao(), ev.getPreco(),ev.getTotalValorPago(), ev.getIdadeMedia(), ev.contarGratuidades(), ev.contarConvidados()});
+				model.addRow(new Object[]//{ev.getId()+"", ev.getData(), ev.getDescricao(), ev.getPreco(),ev.getTotalValorPago(), ev.getIdadeMedia(), ev.contarGratuidades(), ev.contarConvidados()});
 			}
 
 			table.setModel(model);
-			label_8.setText("resultados: "+lista.size()+ " eventos  - selecione uma linha");
+			label_8.setText("resultados: "+lista.size()+ " Clientes  - selecione uma linha");
 		}
 		catch(Exception erro){
 			label.setText(erro.getMessage());
