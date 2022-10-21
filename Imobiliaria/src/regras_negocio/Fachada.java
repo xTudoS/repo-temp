@@ -46,6 +46,12 @@ public class Fachada {
 		DAO.commit();
 		return result;
 	}
+	public static List<Cliente> listarClientes() {
+		DAO.begin();
+		List<Cliente> result = daocliente.readAll();
+		DAO.commit();
+		return result;
+	}
 	public static List<Corretor> listarCorretor() {
 		DAO.begin();
 		List<Corretor> result = daocorretor.readAll();

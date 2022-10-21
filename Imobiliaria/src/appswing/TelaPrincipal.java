@@ -85,7 +85,7 @@ public class TelaPrincipal {
 
 		JMenuBar menuBar = new JMenuBar();
 		frame.setJMenuBar(menuBar);
-		mnCliente = new JMenu("Clientes");
+		JMenu mnCliente = new JMenu("Clientes");
 		mnCliente.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
@@ -101,7 +101,7 @@ public class TelaPrincipal {
 				TelaVendas tela = new TelaVendas();
 			}
 		});
-		menuBar.add(mnVenda);
+		menuBar.add(mnEvento);
 	}
 
 }

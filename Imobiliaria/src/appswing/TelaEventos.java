@@ -28,9 +28,7 @@ import javax.swing.border.LineBorder;
 import javax.swing.table.DefaultTableModel;
 import javax.swing.text.MaskFormatter;
 
-import modelo.Convidado;
-import modelo.Evento;
-import modelo.Participante;
+import model.Cliente;
 import regras_negocio.Fachada;
 
 public class TelaEventos {
@@ -130,8 +128,6 @@ public class TelaEventos {
 					String data = formattedTextField.getText();
 					String descricao = textField_1.getText();
 					String preco = textField_2.getText();
-					Evento ev = Fachada.criarEvento(data, descricao, Double.parseDouble(preco));
-					label.setText("evento criado: " + ev.getId());
 					listagem();
 				}
 				catch(Exception ex) {
@@ -154,7 +150,7 @@ public class TelaEventos {
 						int escolha = JOptionPane.showOptionDialog(null, "Confirma cancelamento do evento "+data, "Alerta",
 								JOptionPane.DEFAULT_OPTION, JOptionPane.WARNING_MESSAGE, null, options, options[1]);
 						if(escolha == 0) {
-							Fachada.apagarEvento(data);
+//							Fachada.apagarEvento(data);
 							label.setText("evento cancelado e participantes removidos: "+ data);
 							listagem();
 						}
@@ -241,7 +237,7 @@ public class TelaEventos {
 					if (table.getSelectedRow() >= 0){
 						String data = (String) table.getValueAt( table.getSelectedRow(), 1);
 						String novadata = JOptionPane.showInputDialog(frame,"Digite a nova data (dd/mm/aaaa)");
-						Fachada.adiarEvento(data,novadata);
+//						Fachada.adiarEvento(data,novadata);
 						label.setText("evento adiado para : "+novadata);
 						listagem();
 					}
@@ -263,12 +259,12 @@ public class TelaEventos {
 				try {
 					if (table.getSelectedRow() >= 0){
 						String id = (String) table.getValueAt( table.getSelectedRow(), 0);
-						Evento ev = Fachada.localizarVenda(Integer.parseInt(id));
-						String nomes= "Nomes dos convidados:";
-						for(Convidado c : ev.getConvidados())
-							nomes+="\n"+c.getNome();
+//						Evento ev = Fachada.localizarVenda(Integer.parseInt(id));
+//						String nomes= "Nomes dos convidados:";
+//						for(Convidado c : ev.getConvidados())
+//							nomes+="\n"+c.getNome();
 
-						JOptionPane.showMessageDialog(frame, nomes);
+//						JOptionPane.showMessageDialog(frame, nomes);
 					}
 					else
 						label.setText("selecione uma linha");
@@ -288,12 +284,12 @@ public class TelaEventos {
 				try {
 					if (table.getSelectedRow() >= 0){
 						String id = (String) table.getValueAt( table.getSelectedRow(), 0);
-						Evento ev = Fachada.localizarEvento(Integer.parseInt(id));
-						String nomes= "Nomes dos participantes:";
-						for(Participante p : ev.getParticipantes())
-							nomes+="\n"+p.getNome();
+//						Evento ev = Fachada.localizarEvento(Integer.parseInt(id));
+//						String nomes= "Nomes dos participantes:";
+//						for(Participante p : ev.getParticipantes())
+//							nomes+="\n"+p.getNome();
 
-						JOptionPane.showMessageDialog(frame, nomes);
+//						JOptionPane.showMessageDialog(frame, nomes);
 					}
 					else
 						label.setText("selecione uma linha");
@@ -328,9 +324,9 @@ public class TelaEventos {
 			model.addColumn("gratuidades");
 			model.addColumn("convidados");
 			//linhas
-			for(Evento ev : lista) {
-				model.addRow(new Object[]//{ev.getId()+"", ev.getData(), ev.getDescricao(), ev.getPreco(),ev.getTotalValorPago(), ev.getIdadeMedia(), ev.contarGratuidades(), ev.contarConvidados()});
-			}
+//			for(Evento ev : lista) {
+//				model.addRow(new Object[]//{ev.getId()+"", ev.getData(), ev.getDescricao(), ev.getPreco(),ev.getTotalValorPago(), ev.getIdadeMedia(), ev.contarGratuidades(), ev.contarConvidados()});
+//			}
 
 			table.setModel(model);
 			label_8.setText("resultados: "+lista.size()+ " Clientes  - selecione uma linha");

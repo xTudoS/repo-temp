@@ -130,8 +130,8 @@ public class TelaVendas {
 					String data = formattedTextField.getText();
 					String descricao = textField_1.getText();
 					String preco = textField_2.getText();
-					Venda ev = Fachada.criarVenda(data, descricao, Double.parseDouble(preco));
-					label.setText("evento criado: " + ev.getId());
+//					Venda ev = Fachada.criarVenda(data, descricao, Double.parseDouble(preco));
+//					label.setText("evento criado: " + ev.getId());
 					listagem();
 				}
 				catch(Exception ex) {
@@ -154,7 +154,7 @@ public class TelaVendas {
 						int escolha = JOptionPane.showOptionDialog(null, "Confirma cancelamento do evento "+data, "Alerta",
 								JOptionPane.DEFAULT_OPTION, JOptionPane.WARNING_MESSAGE, null, options, options[1]);
 						if(escolha == 0) {
-							Fachada.apagarVenda(data);
+//							Fachada.apagarVenda(data);
 							label.setText("evento cancelado e participantes removidos: "+ data);
 							listagem();
 						}
@@ -241,7 +241,6 @@ public class TelaVendas {
 					if (table.getSelectedRow() >= 0){
 						String data = (String) table.getValueAt( table.getSelectedRow(), 1);
 						String novadata = JOptionPane.showInputDialog(frame,"Digite a nova data (dd/mm/aaaa)");
-						Fachada.adiarVenda(data,novadata);
 						label.setText("evento adiado para : "+novadata);
 						listagem();
 					}
@@ -328,9 +327,7 @@ public class TelaVendas {
 			model.addColumn("gratuidades");
 			model.addColumn("convidados");
 			//linhas
-			for(Venda ev : lista) {
-				model.addRow(new Object[]//{ev.getId()+"", ev.getData(), ev.getDescricao(), ev.getPreco(),ev.getTotalValorPago(), ev.getIdadeMedia(), ev.contarGratuidades(), ev.contarConvidados()});
-			}
+
 
 			table.setModel(model);
 			label_8.setText("resultados: "+lista.size()+ " Clientes  - selecione uma linha");

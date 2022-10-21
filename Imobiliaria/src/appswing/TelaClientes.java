@@ -26,9 +26,6 @@ import javax.swing.SwingConstants;
 import javax.swing.border.LineBorder;
 import javax.swing.table.DefaultTableModel;
 
-import modelo.Convidado;
-import modelo.Evento;
-import modelo.Participante;
 import regras_negocio.Fachada;
 
 public class TelaClientes {
@@ -162,13 +159,7 @@ public class TelaClientes {
 					String nome = textField_2.getText();
 					String idade = textField_3.getText();
 					String empresa = textField_4.getText();
-					Participante p;
-					if(empresa.isEmpty())
-						p = Fachada.criarParticipante(email,nome,Integer.parseInt(idade));
-					else
-						p = Fachada.criarConvidado(email,nome,Integer.parseInt(idade),empresa);
 
-					label.setText("participante criado: "+p.getEmail());
 					listagem();
 				}
 				catch(Exception ex) {
@@ -232,7 +223,6 @@ public class TelaClientes {
 				try{
 					if (table.getSelectedRow() >= 0){
 						String nome = (String) table.getValueAt( table.getSelectedRow(), 1);
-						Fachada.apagarParticipante(nome);
 						label.setText("deletou participante " +nome);
 						listagem();
 					}
@@ -255,18 +245,14 @@ public class TelaClientes {
 					if (table.getSelectedRow() >= 0){
 						String nome = (String) table.getValueAt( table.getSelectedRow(), 1);
 						String id = JOptionPane.showInputDialog(frame, "Digite o id");
-						Participante p = Fachada.localizarParticipante(nome);
-						Evento ev = Fachada.localizarEvento(Integer.parseInt(id));
-						double valor = p.getValorPago(ev.getPreco());
+
 						
-						JOptionPane.showMessageDialog(frame, "Preco do evento="+ev.getPreco()+ " - Valor a ser pago =" +valor);
-						
+
 						Object[] options = { "Confirmar", "Desistir" };
 						int escolha = JOptionPane.showOptionDialog(null, "Confirma inscricao do evento "+id, "Alerta",
 										JOptionPane.DEFAULT_OPTION, JOptionPane.WARNING_MESSAGE, null, options, options[1]);
 						if(escolha == 0) {
-							Fachada.adicionarParticipanteEvento(nome, Integer.parseInt(id));
-							label.setText(p.getEmail()+ " recebera boleto de pagamento de "+valor);
+
 							listagem();
 						}
 						else
@@ -295,18 +281,12 @@ public class TelaClientes {
 					if (table.getSelectedRow() >= 0){
 						String nome = (String) table.getValueAt( table.getSelectedRow(), 1);
 						String id = JOptionPane.showInputDialog(frame, "Digite o id");
-						Participante p = Fachada.localizarParticipante(nome);
-						Evento ev = Fachada.localizarEvento(Integer.parseInt(id));
-						double valor = p.getValorPago(ev.getPreco());
-						
-						JOptionPane.showMessageDialog(frame, "Preco do evento="+ev.getPreco()+ " - Valor que foi pago =" +valor);
-						
+
+
 						Object[] options = { "Confirmar", "Desistir" };
 						int escolha = JOptionPane.showOptionDialog(null, "Confirma remocao do evento "+id, "Alerta",
 										JOptionPane.DEFAULT_OPTION, JOptionPane.WARNING_MESSAGE, null, options, options[1]);
 						if(escolha == 0) {
-							Fachada.removerParticipanteEvento(nome, Integer.parseInt(id));
-							label.setText("vc recebera restituicao de "+valor);
 							listagem();
 						}
 						else
@@ -345,7 +325,7 @@ public class TelaClientes {
 
 	public void listagem() {
 		try{
-			List<Participante> lista = Fachada.listarParticipantes(textField.getText());
+
 			
 			//model contem todas as linhas e colunas da tabela
 			DefaultTableModel model = new DefaultTableModel();
@@ -360,20 +340,9 @@ public class TelaClientes {
 
 			//linhas
 			String texto;
-			for(Participante p : lista) {
-				texto=" ";
-				for(Evento ev : p.getEventos()) 
-					texto += ev.getId()+ " " ;
 
-				if(p instanceof Convidado c)
-					model.addRow(new Object[]{p.getEmail(), p.getNome(), p.getIdade(), c.getEmpresa(),p.getPercentual(), texto});
-				else
-					model.addRow(new Object[]{p.getEmail(), p.getNome(), p.getIdade(), "",p.getPercentual(), texto});
-
-			}
 			
 			table.setModel(model);
-			label_6.setText("resultados: "+lista.size()+ " participantes   - selecione uma linha");
 		}
 		catch(Exception erro){
 			label.setText(erro.getMessage());
